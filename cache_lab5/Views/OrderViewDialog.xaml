@@ -1,0 +1,46 @@
+﻿<Window x:Class="cache_lab5.Views.OrderViewDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:cache_lab5.Views"
+        mc:Ignorable="d"
+        Title="OrderViewDialog" Height="414.765" Width="438.926">
+    <Window.Resources>
+        <local:CacheIntegerConverter x:Key="CacheIntegerConverter" />
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="200"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="107"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Label x:Name="NameLabel" Content="Ім'я" Margin="11,8,53,0" VerticalAlignment="Top" Height="26" Grid.Row="1"/>
+        <TextBox x:Name="NameUser" Grid.Column="1" Height="23" Margin="11,8,9,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding CurrentOrder.TimeEnd}" Grid.Row="1" IsReadOnly="{Binding IsViewMode}"/>
+        <Label x:Name="EmailLabel" Content="Email" Margin="11,8,53,0" VerticalAlignment="Top" Height="26" Grid.Row="2"/>
+        <TextBox x:Name="EmailUser" Grid.Column="1" Height="23" Margin="11,8,9,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding CurrentOrder.Email}" Grid.Row="2" IsReadOnly="{Binding IsViewMode}"/>
+        <Button x:Name="ActionButton" Content="{Binding ActionTitle}" Grid.Column="1" HorizontalAlignment="Right" Margin="0,58,10,0" Width="75" Command="{Binding ActionCommand}" Grid.Row="3" Height="23" VerticalAlignment="Top"/>
+        <Label x:Name="lPhone" Content="Phone" Margin="11,8,53,0" VerticalAlignment="Top" Height="26" Grid.Row="3"/>
+        <TextBox x:Name="Phone" Grid.Column="1" Height="23" Margin="11,8,9,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding CurrentOrder.Mobile}" Grid.Row="3" IsReadOnly="{Binding IsViewMode}"/>
+        <Button x:Name="CancelButton" Content="Скасувати" Grid.Column="1" Margin="0,58,90,0" Command="{Binding CancelCommand}" Grid.Row="3" Height="23" VerticalAlignment="Top" HorizontalAlignment="Right" Width="75"/>
+        <DataGrid x:Name="DataGrid" Grid.Row="4" Margin="10,10,10,30" ItemsSource="{Binding Tickets, Mode=TwoWay}" AutoGenerateColumns="False"  IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Place.Row, Converter={StaticResource CacheIntegerConverter}}" Header="Name"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Email}" Header="Email"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Phone}" Header="Phones"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding ID}" Header="Phones"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="EditFeatureBtn" Content="Редагувати" Margin="0,0,0,7" HorizontalAlignment="Right" Width="75" Height="20" VerticalAlignment="Bottom"/>
+        <Button x:Name="AddFeatureBtn" Content="Додати" Margin="0,0,80,7" HorizontalAlignment="Right" Width="75" Height="20" VerticalAlignment="Bottom"/>
+        <Button x:Name="DeleteFeatureBtn" Content="Видалити" HorizontalAlignment="Left" Margin="144,0,0,7" Width="75" Height="20" VerticalAlignment="Bottom"/>
+
+
+    </Grid>
+</Window>

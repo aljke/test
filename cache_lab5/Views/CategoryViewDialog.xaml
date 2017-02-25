@@ -1,0 +1,23 @@
+﻿<Window x:Class="cache_lab5.Views.CategoryViewDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:cache_lab5.Views"
+        mc:Ignorable="d"
+        Title="{Binding EditFormTitle}" Height="132.886" Width="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="188"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="107"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Label x:Name="NameLabel" Content="Назва" Margin="11,8,53,0" VerticalAlignment="Top" Height="26" Grid.Row="1"/>
+        <TextBox x:Name="NameCategory" Grid.Column="1" Height="23" Margin="11,8,9,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding CurrentCategory.CategoryName}" Grid.Row="1" IsReadOnly="{Binding IsViewMode}"/>
+        <Button x:Name="ActionButton" Content="{Binding ActionTitle}" Grid.Column="1" HorizontalAlignment="Right" Margin="0,58,10,0" Width="75" Command="{Binding ActionCommand}" Grid.Row="1" Height="23" VerticalAlignment="Top"/>
+        <Button x:Name="CancelButton" Content="Скасувати" Grid.Column="1" Margin="0,58,90,0" Command="{Binding CancelCommand}" Grid.Row="1" Height="23" VerticalAlignment="Top" HorizontalAlignment="Right" Width="75"/>
+    </Grid>
+</Window>
