@@ -93,6 +93,7 @@ namespace cache_lab5.ViewModels
                     {
                         IsViewMode = false;
                         EditFormTitle = "Редагування категорії: " + CurrentCategory.CategoryName;
+                        //
                         ActionTitle = "Зберегти";
                         ActionCommand = new Command((o) =>
                         {
